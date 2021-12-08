@@ -112,13 +112,13 @@ def dot(A, B):
 @dispatch(da.Array, np.ndarray)
 def dot(A, B):
     B = da.from_array(B, chunks=B.shape)
-    return da.dot(A, B)
+    return da.matmul(A, B)
 
 
 @dispatch(np.ndarray, da.Array)
 def dot(A, B):
     A = da.from_array(A, chunks=A.shape)
-    return da.dot(A, B)
+    return da.matmul(A, B)
 
 
 @dispatch(np.ndarray, np.ndarray)
@@ -128,7 +128,7 @@ def dot(A, B):
 
 @dispatch(da.Array, da.Array)
 def dot(A, B):
-    return da.dot(A, B)
+    return da.matmul(A, B)
 
 
 @dispatch(object)
